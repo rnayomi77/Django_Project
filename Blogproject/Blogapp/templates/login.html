@@ -1,0 +1,40 @@
+<!-- registration/login.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Add your CSS stylesheets or include Bootstrap if desired -->
+    <link rel="stylesheet" href="path/to/your/styles.css">
+</head>
+<body>
+    <h2>Login</h2>
+
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+
+        {{ form.non_field_errors }}
+
+        <div>
+            {{ form.username.label_tag }}
+            {{ form.username }}
+            {{ form.username.errors }}
+        </div>
+
+        <div>
+            {{ form.password.label_tag }}
+            {{ form.password }}
+            {{ form.password.errors }}
+        </div>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <p>Don't have an account? <a href="{% url 'register' %}">Register here</a>.</p>
+
+    <!-- Add your JavaScript files or include Bootstrap JS if needed -->
+    <script src="path/to/your/script.js"></script>
+</body>
+</html>
